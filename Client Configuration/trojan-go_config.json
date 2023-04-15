@@ -26,7 +26,7 @@
     },
     "shadowsocks": {
         "enabled": false, //shadowsocks AEAD加密开关，默认关闭。是否启用取决服务端设置（必须与服务器设置一致）。
-        "method": "AES-128-GCM",
+        "method": "AES-128-GCM", //默认加密方式（必须与服务器设置一致）
         "password": "" //若shadowsocks AEAD加密启用，设置加密密码（必须与服务器设置一致）。
     },
     "mux": {
