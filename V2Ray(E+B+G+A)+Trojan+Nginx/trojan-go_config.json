@@ -10,8 +10,8 @@
     "log_level": 2,
     "log_file": "/var/log/trojan-go/error.log", //错误日志的文件地址
     "ssl": {
-        "cert": "/home/tls/certificates/acme-v02.api.letsencrypt.org-directory/zt.xx.yy/zt.xx.yy.crt", //换成自己的证书，绝对路径。
-        "key": "/home/tls/certificates/acme-v02.api.letsencrypt.org-directory/zt.xx.yy/zt.xx.yy.key", //换成自己的密钥，绝对路径。
+        "cert": "/home/tls/zt.xx.yy/zt.xx.yy.crt", //换成自己的证书，绝对路径。
+        "key": "/home/tls/zt.xx.yy/zt.xx.yy.key", //换成自己的密钥，绝对路径。
         "key_password": "",
         "prefer_server_cipher": true, //优先使用服务端的密码套件（对如下TLSv1.2协议的密码套件有效）
         "cipher": "TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384:TLS_AES_128_GCM_SHA256:TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256:TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384:TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", //若不启用TLSv1.3，删除前三个密码套件。若证书为RSA证书，所有ECDSA改为RSA。
@@ -37,8 +37,8 @@
         "host": "" //若使用了CDN，一般需填入域名；否则不正确的host可能导致CDN无法转发请求。
     },
     "shadowsocks": {
-        "enabled": false, //若使用了WebSocket、且经过不可信的CDN进行中转（如国内CDN）或连接遭到了GFW针对TLS的中间人攻击等可开启；否则Shadowsocks AEAD加密一般关闭。
-        "method": "AES-128-GCM",
+        "enabled": false, //若启用了WebSocket、且使用不可信的CDN进行中转，推荐Shadowsocks AEAD加密启用；否则禁用。
+        "method": "AES-128-GCM", //默认加密方式
         "password": "" //配置Shadowsocks AEAD加密密码。若Shadowsocks AEAD加密启用必须配置，不能留空。
     }
 }
